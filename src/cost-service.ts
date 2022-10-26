@@ -103,6 +103,8 @@ export default class CostService {
       })
     }).promise();
     await this.iam.attachRolePolicy({RoleName: `klouds-connector-${uniqueId}`, PolicyArn: policy.Policy!.Arn! }).promise();
+    console.log('Waiting for policies to attach');
+    await new Promise(resolve => setTimeout(resolve, 10000));
     return role.Role.Arn;
   }
 
