@@ -1,9 +1,18 @@
 {
-  "name": "",
+  "name": "@hexlabs/klouds-cli",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
+  "bin": {
+    "klouds": "src/index.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
     "prepare": "husky install",
     "test": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "lint": "eslint **/*.ts"
@@ -24,7 +33,7 @@
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "ecmaVersion": 2019,
+      "ecmaVersion": 2020,
       "sourceType": "module"
     },
     "plugins": [
@@ -41,11 +50,11 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hexlabsio/klouds-cli"
   },
   "author": "template",
   "bugs": {
-    "url": "https://github.com/hexlabsio/typescript-template/issues"
+    "url": "https://github.com/hexlabsio/klouds-cli/issues"
   },
   "husky": {
     "hooks": {
@@ -66,23 +75,35 @@
       "js"
     ]
   },
-  "homepage": "",
+  "homepage": "https://docs.klouds.io/klouds-cli",
   "devDependencies": {
+    "@hexlabs/schema-api-ts": "^1.1.86",
+    "@types/aws-lambda": "^8.10.92",
+    "@types/chalk": "^2.2.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/inquirer": "^9.0.2",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.6.1",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
+    "aws-lambda": "^1.0.7",
     "eslint": "^7.27.0",
     "eslint-plugin-jest": "^24.3.6",
     "husky": "^6.0.0",
     "jest": "^27.0.3",
     "jest-junit": "^10.0.0",
-    "json-loader": "^0.5.7",
-    "node-loader": "^0.6.0",
     "ts-jest": "^27.0.2",
-    "ts-loader": "^6.2.2",
-    "typescript": "^4.3.2",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^4.7.0"
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1240.0",
+    "chalk": "^4.1.0",
+    "commander": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "inquirer": "^8.2.5",
+    "path": "^0.12.7",
+    "ts-node": "^8.10.2"
   }
 }
