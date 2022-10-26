@@ -1,4 +1,5 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env node
+
 import { CUR, SharedIniFileCredentials, STS } from 'aws-sdk';
 import { ConfigurationOptions } from 'aws-sdk/lib/config-base';
 import { Command } from "commander";

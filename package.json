@@ -1,10 +1,11 @@
 {
   "name": "@hexlabs/klouds-cli",
   "version": "1.0.0",
-  "main": "src/index.ts",
   "bin": {
-    "klouds": "src/index.ts"
+    "klouds": "dist/index.js"
   },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -13,13 +14,11 @@
     "dist"
   ],
   "scripts": {
+    "build": "tsc --project tsconfig.json",
     "prepare": "husky install",
     "test": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "lint": "eslint **/*.ts"
   },
-  "eslintIgnore": [
-    "webpack.config.js"
-  ],
   "eslintConfig": {
     "extends": [
       "eslint:recommended",
