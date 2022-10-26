@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "tsc --project tsconfig.json",
+    "start": "ts-node src/index.ts",
     "prepare": "husky install",
     "test": "jest --ci --runInBand --coverage --reporters=default --reporters=jest-junit",
     "lint": "eslint **/*.ts"
