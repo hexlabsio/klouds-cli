@@ -119,7 +119,7 @@ async function run(command: {region?: string, environment?: string, handshake: s
   const config = await getConfig({region: command.region});
   if(!config) process.exit(0);
   const costService = new CostService(new S3({...config, region: 'us-east-1'}), new IAM({...config, region: 'us-east-1'}), new SNS({...config, region: 'eu-west-1'}), new CUR({...config, region: 'us-east-1'}));
-  const identityService = new IdentityService(new STS(config), new Organizations(config));
+  const identityService = new IdentityService(new STS(config), new Organizations({...config, region: 'us-east-1'}));
   const validReports = await costService.getValidReports();
   const reportOptions = validReports.map((it, index) => ({ name: `${index + 2}. Name: ${it.ReportName} S3 Bucket: ${it.S3Bucket} S3 Region: ${it.S3Region} Prefix: ${it.S3Prefix}`, value: it.ReportName}));
   const {selectedReport} = await inquirer.prompt([{ message: 'Select a report or choose Create New Report', loop: false, type: 'list', name: 'selectedReport', choices: [{name: '1. Create New Report', value: '#CreateNew'}, ...reportOptions]}]);
